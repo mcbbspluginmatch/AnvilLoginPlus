@@ -37,6 +37,7 @@ public class AnvilGUIListener implements Listener {
 
 				if (event.getWillClose()) {
 					gui.destroy();
+					// 不应在此事件中打开其他的背包或关闭背包 —— 754503921
 					BookUtil.openBook(p);
 					p.setLevel(p.getLevel() - 1);
 				}

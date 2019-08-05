@@ -56,6 +56,8 @@ public class RegisterGUIHandler implements AnvilClickEventHandler {
 			UUID uuid = p.getUniqueId();
 			PlayerAuthInfo info = new PlayerAuthInfo(p.getName(), uuid.toString(), password, presentTime, presentTime,
 					ip);
+			// 同步数据库操作
+			// 明文储存密码 —— 754503921
 			plugin.getPlayerAuthInfoManager().setPlayerAuthInfo(uuid, info);
 			plugin.getLoggedPlayer().add(uuid);
 			p.sendMessage("§a注册成功！你的密码是:§d" + password + "§a,请牢记");

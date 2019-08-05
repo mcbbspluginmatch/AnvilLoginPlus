@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import org.bukkit.Bukkit;
 
+// 看不透，为什么要自己写连接池呢，写出来肯定都有问题，shade 插件都有了，整个 HikariCP 之类只有100kb 的连接池不好吗 —— 754503921
 public class ConnectionPool {
 	private PoolConfig config;
 	private Vector<Connection> pool;
@@ -16,6 +17,7 @@ public class ConnectionPool {
 
 	public ConnectionPool(PoolConfig config) {
 		this.config = config;
+		// 可是这个构造方法传进去的 pool 肯定是 null 啊 —— 754503921
 		runnable = new PoolRunnable(pool);
 		thread = new Thread(runnable);
 		thread.start();
